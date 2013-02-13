@@ -11,7 +11,49 @@
 |
 */
 
-Route::get('/', function()
+// Register routes for main site.
+Route::get('tour', 'HomeController@tour');
+Route::get('pricing', 'HomeController@pricing');
+Route::get('blog', 'HomeController@blog');
+Route::get('help', 'HomeController@help');
+Route::get('/', 'HomeController@index');
+
+Route::get('register', 'UsersController@create');
+Route::post('register', 'UsersController@store');
+
+Route::group(['before' => 'guest'], function() {
+    Route::get('login', 'SessionController@create');
+    Route::post('login', 'SessionController@store');
+});
+Route::get('logout', 'SessionController@destroy');
+
+// App secure routes
+// Enable https on production
+//Route::group(['before' => 'auth', 'https'], function()
+Route::group(['before' => 'auth'], function()
 {
-	return View::make('hello');
+// user Resource
+    Route::resource('users', 'UsersController');
+
+// flock Resource
+    Route::resource('flocks', 'GroupsController');
+
+// discusions Resource
+    Route::resource('flocks.discussions', 'DiscussionsController');
+});
+
+
+/*
+| View composer to pass group list into the top nav of app for every view.
+| This saves having to pass it into the view from each controller.
+*/
+View::composer(['layouts._navigation-app', 'layouts._sidebar-left'], function($event)
+{
+    $event->with('groups', Group::sortedList());
+});
+
+// Catch 404 errors and use custom page
+App::missing(function($exception)
+{
+    return View::make('errors.missing');
 });
