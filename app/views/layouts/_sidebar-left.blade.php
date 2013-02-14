@@ -1,0 +1,13 @@
+<div class="span2">
+    <p>
+        Flocks
+        <a href="{{ URL::action('GroupsController@create') }}" class="btn btn-small">Create</a>
+    </p>
+    <ul class="pull-left">
+        @foreach ($groups as $group)
+        <li>
+            <a href="{{ URL::action('GroupsController@show', [$group->id]) }}" tabindex="-1">{{ $group->name }}</a>
+        </li>
+        @endforeach
+    </ul>
+</div>

@@ -22,7 +22,7 @@ Route::get('register', 'UsersController@create');
 Route::post('register', 'UsersController@store');
 
 Route::group(['before' => 'guest'], function() {
-    Route::get('login', 'SessionController@create');
+    Route::get('login', ['as' => 'login', 'uses' => 'SessionController@create']);
     Route::post('login', 'SessionController@store');
 });
 Route::get('logout', 'SessionController@destroy');
@@ -40,6 +40,9 @@ Route::group(['before' => 'auth'], function()
 
 // discusions Resource
     Route::resource('flocks.discussions', 'DiscussionsController');
+
+// posts Resource
+    Route::resource('flocks.discussions.posts', 'PostsController');
 });
 
 
