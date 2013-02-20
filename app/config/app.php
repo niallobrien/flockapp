@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'OUq4$YmA@Ci3LaBi8D-zejRX5q0v6VlW',
+	'key' => 'YourSecretKey!!!',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -109,10 +109,6 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Meido\HTML\HTMLServiceProvider',
-        'Meido\Form\FormServiceProvider',
-        'BigElephant\String\StringServiceProvider',
-
 
 	),
 
@@ -172,12 +168,10 @@ return array(
 		'Schema'          => 'Illuminate\Support\Facades\Schema',
 		'Seeder'          => 'Illuminate\Database\Seeder',
 		'Session'         => 'Illuminate\Support\Facades\Session',
+		'Str'             => 'Illuminate\Support\Str',
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'HTML'       => 'Meido\HTML\HTMLFacade',
-        'Form'       => 'Meido\Form\FormFacade',
-        'String' => 'BigElephant\String\StringFacade'
 
 	),
 
