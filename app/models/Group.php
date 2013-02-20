@@ -36,7 +36,7 @@ class Group extends Eloquent {
      */
     public static function sortedList()
     {
-        return Auth::user()->groups()->orderBy('name', 'asc')->get();
+        return Auth::user()->groups()->orderBy('title', 'asc')->get();
     }
 
     /**

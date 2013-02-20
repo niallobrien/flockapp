@@ -33,7 +33,7 @@ class GroupsController extends BaseController {
         $input = Input::get();
 
         // Get info from $input
-        $name = $input['name'];
+        $title = $input['title'];
         $description = $input['description'];
         $category = $input['category'];
 
@@ -42,7 +42,7 @@ class GroupsController extends BaseController {
         */
 
         // Validation rules
-        $rules = ['name'=> 'required'];
+        $rules = ['title'=> 'required'];
         $validation = Validator::make($input, $rules);
 
         // If input fails redirect with errors and old input
@@ -53,7 +53,7 @@ class GroupsController extends BaseController {
         }
         else {
             // Insert new group and assign to user
-            $group = new Group(['name' => $name, 'description' => $description, 'category' => $category]);
+            $group = new Group(['title' => $title, 'description' => $description, 'category' => $category]);
             $group = Auth::user()->groups()->save($group);
             return Redirect::action('GroupsController@show', [$group->id]);
         }
@@ -69,6 +69,10 @@ class GroupsController extends BaseController {
         if (Auth::user()->hasAccessToGroup($id)) {
             $group = Group::find($id);
             $discussions = $group->discussions()->get();
+
+            // Swap out the sidebar defined in our app master layout (also see start/global.php)
+            View::share('_sidebarLeft', 'groups._sidebar-left');
+
             return View::make('groups.show')
                 ->with('group', $group)
                 ->with('discussions', $discussions);
@@ -88,6 +92,7 @@ class GroupsController extends BaseController {
         if ($user->hasAccessToGroup($id))
         {
             $group = Group::find($id);
+            View::share('_sidebarLeft', 'groups._sidebar-left');
             return View::make('groups.edit')
                 ->with('group', $group);
         }
@@ -108,12 +113,12 @@ class GroupsController extends BaseController {
         $input = Input::get();
 
         // Get info from $input
-        $name = $input['name'];
+        $group = $input['group'];
         $description = $input['description'];
         $category = $input['category'];
 
         // Validation rules
-        $rules = ['name'=> 'required'];
+        $rules = ['group'=> 'required'];
         $validation = Validator::make($input, $rules);
 
         // If input fails redirect with errors and old input
@@ -125,7 +130,7 @@ class GroupsController extends BaseController {
         else {
             // Update group
             $group = Group::find($id);
-            $group->name = $name;
+            $group->group = $group;
             $group->description = $description;
             $group->category = $category;
             $group->save();

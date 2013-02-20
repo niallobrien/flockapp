@@ -14,7 +14,7 @@ class CreateGroupsTable extends Migration {
         Schema::create('groups', function($table)
         {
             $table->increments('id');
-            $table->string('name');
+            $table->string('title');
             $table->string('description');
             $table->string('category');
             $table->timestamps();

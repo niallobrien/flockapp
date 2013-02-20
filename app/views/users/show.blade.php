@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        @include('layouts._sidebar-left')
-        <div class="span8">
-        <h1>Activity Stream</h1>
-        </div>
-        @include('layouts._sidebar-right')
+<div class="span8">
+    <h1>Activity Stream</h1>
+    <div class="well">
+        @foreach ($posts as $post)
+        <p>
+            <strong>{{ $post->user->fullName() }}</strong> posted to the
+            <a href="{{ URL::action('DiscussionsController@show', [$post->discussion->group->id, $post->discussion->id]) }}">
+                {{ $post->discussion->title }} discussion</a> in the
+            <a href="{{ URL::action('GroupsController@show', [$post->discussion->group->id]) }}">{{ $post->discussion->group->title }} flock</a>.
+        </p>
+        @endforeach
     </div>
-    @stop
+</div>
+@stop

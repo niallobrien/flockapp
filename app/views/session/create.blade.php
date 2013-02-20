@@ -28,12 +28,12 @@
 
                 {{-- Check for validation errors and group them in a single alert box --}}
 
-                {{ $errors->any() ? '<div class="alert alert-error">' : '' }}
-                    {{ $errors->has('first_name') ? '<li>' . $errors->first('first_name') . '</li>' : ''}}
-                    {{ $errors->has('last_name') ? '<li>' . $errors->first('last_name') . '</li>' : ''}}
-                    {{ $errors->has('email') ? '<li>' . $errors->first('email') . '</li>' : ''}}
-                    {{ $errors->has('password') ? '<li>' . $errors->first('password') . '</li>' : ''}}
-                    {{ $errors->any() ? '</div>' : '' }}
+                {{{ $errors->any() ? '<div class="alert alert-error">' : '' }}}
+                    {{{ $errors->has('first_name') ? '<li>' . $errors->first('first_name') . '</li>' : '' }}}
+                    {{{ $errors->has('last_name') ? '<li>' . $errors->first('last_name') . '</li>' : '' }}}
+                    {{{ $errors->has('email') ? '<li>' . $errors->first('email') . '</li>' : '' }}}
+                    {{{ $errors->has('password') ? '<li>' . $errors->first('password') . '</li>' : '' }}}
+                    {{{ $errors->any() ? '</div>' : '' }}}
 
                 <div class="control-group {{ $errors->has('email') ? 'error' : '' }} ">
                     {{{ Form::text( 'email', '', array('placeholder' => 'Email', 'class' => 'input-block-level') ) }}}

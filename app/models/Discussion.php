@@ -10,11 +10,11 @@ class Discussion extends Eloquent {
     protected $table = 'discussions';
 
     /**
-     * Associate with Groups (1:n).
+     * Associate with Group (1:n).
      *
      * @return relationship
      */
-    public function groups()
+    public function group()
     {
         return $this->belongsTo('Group');
     }

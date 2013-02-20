@@ -50,11 +50,22 @@ class User extends Eloquent implements UserInterface {
     }
 
     /**
+     * Associate with posts (1:n).
+     *
+     * @return relationship
+     */
+
+    public function posts()
+    {
+        return $this->hasMany('Post');
+    }
+
+    /**
      * Return the user's full name
      *
      * @return 	string
      */
-    public function getFullName()
+    public function fullName()
     {
         return $this->first_name . ' ' . $this->last_name;
     }

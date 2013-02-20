@@ -95,6 +95,13 @@ class PostsController extends BaseController {
      */
     public function destroy($groupId, $discussionId, $postId)
     {
+        // If we're deleting the only post in the discussion, remove the discussion too.
+        $discussion = Discussion::find($discussionId);
+        if ($discussion->posts()->count() == 1) {
+            $discussion->delete();
+            return Redirect::action('GroupsController@show', [Group::current()->id]);
+        }
+
         $post = Post::find($postId);
         $post->delete();
         return Redirect::action('DiscussionsController@show', [$groupId, $discussionId]);

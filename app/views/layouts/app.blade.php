@@ -31,9 +31,16 @@
 
 <body>
 @include('layouts._navigation-app')
+<div class="container">
+    <div class="row">
+        @include($_sidebarLeft)
 
-@yield('content')
+        @yield('content')
 
-@include('layouts._footer')
+        @include('layouts._sidebar-right')
+    </div>
+        @include('layouts._footer')
+    </div>
+</div>
 </body>
 </html>

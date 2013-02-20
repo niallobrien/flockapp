@@ -23,7 +23,7 @@
                             @else
                             @foreach ($groups as $group)
                             <li>
-                                <a href="{{ URL::action('GroupsController@show', [$group->id]) }}" tabindex="-1">{{ $group->name }}</a>
+                                <a href="{{ URL::action('GroupsController@show', [$group->id]) }}" tabindex="-1">{{ $group->title }}</a>
                             </li>
                             @endforeach
                             @endif
@@ -39,7 +39,7 @@
                 <ul class="nav pull-right">
                     <li class="dropdown">
                         <a id="profile-dropdown-link" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                            {{ Auth::user()->fullName() }}
                             <b class="caret"></b></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="profile-dropdown-link">
                             <li><a href="{{ URL::action('UsersController@edit', [Auth::user()->id]) }}" tabindex="-1">Settings</a></li>

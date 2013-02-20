@@ -62,3 +62,15 @@ App::error(function(Exception $exception, $code)
 */
 
 require __DIR__.'/../filters.php';
+
+/*
+|--------------------------------------------------------------------------
+| Define initial views - FlockApp
+|--------------------------------------------------------------------------
+|
+| See app/views/layouts/app.blade.php to see how we're using vars for
+| views, these views (sidebars etc.) can then be easily changed when
+| need be.
+*/
+
+View::share('_sidebarLeft', 'layouts._sidebar-left');
