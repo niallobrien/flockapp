@@ -62,3 +62,19 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+|--------------------------------------------------------------------------
+| Last Active Filters
+|--------------------------------------------------------------------------
+|
+| The following filter is used to check when the logged-in user was last
+| active. We will update the timestamps in the DB per request.
+| Other solutions may involve updating/writing to the db every five minutes
+| (if timeStamp > now() - 5 minutes) and/or queue the db write update to a
+| background worker.
+*/
+Route::filter('lastActive', function()
+{
+    // TODO continue working on last_active feature.
+});

@@ -13,6 +13,7 @@ return array(
     'CreateGroupsTable' => $baseDir . '/app/database/migrations/2013_01_18_155523_create_groups_table.php',
     'CreatePostsTable' => $baseDir . '/app/database/migrations/2013_02_14_102034_create_posts_table.php',
     'CreateUsersTable' => $baseDir . '/app/database/migrations/2013_01_17_131514_create_users_table.php',
+    'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'Discussion' => $baseDir . '/app/models/Discussion.php',
     'DiscussionsController' => $baseDir . '/app/controllers/DiscussionsController.php',
     'Group' => $baseDir . '/app/models/Group.php',

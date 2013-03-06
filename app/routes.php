@@ -32,7 +32,7 @@ Route::get('logout', 'SessionController@destroy');
 //Route::group(['before' => 'auth', 'https'], function()
 Route::group(['before' => 'auth'], function()
 {
-// user Resource
+    // user Resource
     Route::resource('users', 'UsersController');
 
 // flock Resource

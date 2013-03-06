@@ -47,10 +47,8 @@ class Group extends Eloquent {
     public function delete()
     {
         // Check for discussions belonging to the group first
-        if ($this->discussions)
-        {
-            foreach ($this->discussions as $discussion)
-            {
+        if ($this->discussions) {
+            foreach ($this->discussions as $discussion) {
                 $discussion->delete();
             }
         }

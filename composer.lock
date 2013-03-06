@@ -1,42 +1,6 @@
 {
-    "hash": "63ecabc17cce3c66e901179d4919b935",
+    "hash": "38a2b089197f1f4d9c6fec0b4b262502",
     "packages": [
-        {
-            "name": "bigelephant/string",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bigelephant/string",
-                "reference": "ae440e62d393fb7b1f1c97c173f351b8668402e2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bigelephant/string/zipball/ae440e62d393fb7b1f1c97c173f351b8668402e2",
-                "reference": "ae440e62d393fb7b1f1c97c173f351b8668402e2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.7.2"
-            },
-            "time": "2013-01-18 14:15:49",
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "BigElephant\\String": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Robbo",
-                    "email": "robert@mercenarydesign.net"
-                }
-            ],
-            "description": "A string helper task with built in classes to easily add to Laravel 4"
-        },
         {
             "name": "ircmaxell/password-compat",
             "version": "1.0.x-dev",
@@ -82,12 +46,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "075781c7f25822a1d1f4eb98fed08680e21ee73c"
+                "reference": "fbb9d8ce40ff90b87853bed6a3e9b4312d1d8bb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/075781c7f25822a1d1f4eb98fed08680e21ee73c",
-                "reference": "075781c7f25822a1d1f4eb98fed08680e21ee73c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/fbb9d8ce40ff90b87853bed6a3e9b4312d1d8bb7",
+                "reference": "fbb9d8ce40ff90b87853bed6a3e9b4312d1d8bb7",
                 "shasum": ""
             },
             "require": {
@@ -141,7 +105,7 @@
                 "aws/aws-sdk-php": "2.1.*",
                 "mockery/mockery": "0.7.2"
             },
-            "time": "2013-02-18 04:42:49",
+            "time": "2013-02-25 02:33:27",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -176,81 +140,54 @@
             ]
         },
         {
-            "name": "meido/form",
-            "version": "v1.1.0",
+            "name": "laravelbook/laravel4-powerpack",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/meido/form",
-                "reference": "v1.1.0"
+                "url": "https://github.com/laravelbook/laravel4-powerpack.git",
+                "reference": "5612d53b77753bf55fb32f38de7e8a952a88da99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/meido/form/archive/v1.1.0.zip",
-                "reference": "v1.1.0",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/routing": "dev-master",
-                "illuminate/support": "dev-master",
-                "meido/html": "1.1.*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.7.2"
-            },
-            "time": "2013-01-13 13:30:17",
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Meido\\Form": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Joni Chandra",
-                    "email": "joniliciously@gmail.com"
-                }
-            ],
-            "description": "A port of Laravel 3's Form class"
-        },
-        {
-            "name": "meido/html",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/meido/html",
-                "reference": "v1.1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/meido/html/archive/v1.1.0.zip",
-                "reference": "v1.1.0",
+                "url": "https://api.github.com/repos/laravelbook/laravel4-powerpack/zipball/5612d53b77753bf55fb32f38de7e8a952a88da99",
+                "reference": "5612d53b77753bf55fb32f38de7e8a952a88da99",
                 "shasum": ""
             },
             "require": {
                 "illuminate/routing": "4.0.x",
                 "illuminate/support": "4.0.x",
-                "php": ">=5.3.0"
+                "php": ">=5.3.0",
+                "raveren/kint": "dev-master"
             },
-            "require-dev": {
-                "mockery/mockery": "0.7.2"
-            },
-            "time": "2013-01-13 13:12:11",
+            "time": "2013-02-01 08:03:15",
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Meido\\HTML": "src/"
+                    "LaravelBook\\Laravel4Powerpack": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
             "authors": [
                 {
-                    "name": "Joni Chandra",
-                    "email": "joniliciously@gmail.com"
+                    "name": "Max Ehsan",
+                    "email": "contact@laravelbook.com",
+                    "homepage": "http://laravelbook.com/",
+                    "role": "Maintainer"
                 }
             ],
-            "description": "A port of Laravel 3's HTML class"
+            "description": "Port of Laravel 3's HTML, Form and Str classes",
+            "homepage": "http://laravelbook.com/",
+            "keywords": [
+                "form",
+                "framework",
+                "html",
+                "laravel",
+                "string",
+                "support"
+            ]
         },
         {
             "name": "monolog/monolog",
@@ -402,18 +339,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/raveren/kint.git",
-                "reference": "6732c4ec6d07f3d8b357f8a43d59fbcd630096ab"
+                "reference": "6bc4df9b83331eb1a18650f94ac39a104cfb41ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raveren/kint/zipball/6732c4ec6d07f3d8b357f8a43d59fbcd630096ab",
-                "reference": "6732c4ec6d07f3d8b357f8a43d59fbcd630096ab",
+                "url": "https://api.github.com/repos/raveren/kint/zipball/6bc4df9b83331eb1a18650f94ac39a104cfb41ad",
+                "reference": "6bc4df9b83331eb1a18650f94ac39a104cfb41ad",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0"
             },
-            "time": "2013-02-19 19:53:03",
+            "time": "2013-02-22 08:09:27",
             "type": "library",
             "autoload": {
                 "files": [
@@ -498,12 +435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/BrowserKit.git",
-                "reference": "f95dd17eaa548908ea97e9ca27144844d1812dfd"
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/f95dd17eaa548908ea97e9ca27144844d1812dfd",
-                "reference": "f95dd17eaa548908ea97e9ca27144844d1812dfd",
+                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
@@ -517,7 +454,7 @@
             "suggest": {
                 "symfony/process": "2.2.*"
             },
-            "time": "2013-02-17 12:53:31",
+            "time": "2013-02-23 06:46:07",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -552,13 +489,13 @@
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Console",
-                "reference": "v2.2.0-RC1"
+                "url": "https://github.com/symfony/Console.git",
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/v2.2.0-RC1",
-                "reference": "v2.2.0-RC1",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
@@ -599,13 +536,13 @@
             "target-dir": "Symfony/Component/CssSelector",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/CssSelector",
-                "reference": "v2.2.0-BETA2"
+                "url": "https://github.com/symfony/CssSelector.git",
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/v2.2.0-BETA2",
-                "reference": "v2.2.0-BETA2",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
@@ -646,13 +583,13 @@
             "target-dir": "Symfony/Component/DomCrawler",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/DomCrawler",
-                "reference": "v2.2.0-RC2"
+                "url": "https://github.com/symfony/DomCrawler.git",
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/v2.2.0-RC2",
-                "reference": "v2.2.0-RC2",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
@@ -664,7 +601,7 @@
             "suggest": {
                 "symfony/css-selector": "2.2.*"
             },
-            "time": "2013-02-08 16:10:52",
+            "time": "2013-02-23 06:46:07",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -699,13 +636,13 @@
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/EventDispatcher",
-                "reference": "v2.2.0-RC2"
+                "url": "https://github.com/symfony/EventDispatcher.git",
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/v2.2.0-RC2",
-                "reference": "v2.2.0-RC2",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
@@ -753,13 +690,13 @@
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Finder",
-                "reference": "v2.2.0-RC1"
+                "url": "https://github.com/symfony/Finder.git",
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Finder/zipball/v2.2.0-RC1",
-                "reference": "v2.2.0-RC1",
+                "url": "https://api.github.com/repos/symfony/Finder/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
@@ -801,18 +738,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "45d7243bf80397a478320c3b30d2fa2aa88fefaa"
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/45d7243bf80397a478320c3b30d2fa2aa88fefaa",
-                "reference": "45d7243bf80397a478320c3b30d2fa2aa88fefaa",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-02-17 13:09:02",
+            "time": "2013-02-23 06:46:07",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -851,12 +788,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "3dc28d3960444d70f13becbffa19023cff876ac8"
+                "reference": "9d4d5faa155758271dbad73c392afb7cfac12c3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/3dc28d3960444d70f13becbffa19023cff876ac8",
-                "reference": "3dc28d3960444d70f13becbffa19023cff876ac8",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/9d4d5faa155758271dbad73c392afb7cfac12c3e",
+                "reference": "9d4d5faa155758271dbad73c392afb7cfac12c3e",
                 "shasum": ""
             },
             "require": {
@@ -884,7 +821,7 @@
                 "symfony/dependency-injection": "2.2.*",
                 "symfony/finder": "2.2.*"
             },
-            "time": "2013-02-19 08:03:14",
+            "time": "2013-02-24 13:09:41",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -920,12 +857,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "dd5c62d414fd2a755717cc14a381cef54ec35205"
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/dd5c62d414fd2a755717cc14a381cef54ec35205",
-                "reference": "dd5c62d414fd2a755717cc14a381cef54ec35205",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
@@ -966,13 +903,13 @@
             "target-dir": "Symfony/Component/Routing",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Routing",
-                "reference": "v2.2.0-RC2"
+                "url": "https://github.com/symfony/Routing.git",
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/v2.2.0-RC2",
-                "reference": "v2.2.0-RC2",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
@@ -1024,13 +961,13 @@
             "target-dir": "Symfony/Component/Translation",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Translation",
-                "reference": "v2.2.0-RC2"
+                "url": "https://github.com/symfony/Translation.git",
+                "reference": "v2.2.0-RC3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Translation/zipball/v2.2.0-RC2",
-                "reference": "v2.2.0-RC2",
+                "url": "https://api.github.com/repos/symfony/Translation/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
                 "shasum": ""
             },
             "require": {
@@ -1080,7 +1017,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "bigelephant/string": 20,
+        "laravelbook/laravel4-powerpack": 20,
         "raveren/kint": 20
     }
 }

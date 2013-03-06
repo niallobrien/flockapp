@@ -42,10 +42,8 @@ class Discussion extends Eloquent {
     function delete()
     {
         // Check for posts to discussion first
-        if ($this->posts)
-        {
-            foreach ($this->posts as $post)
-            {
+        if ($this->posts) {
+            foreach ($this->posts as $post) {
                 $post->delete();
             }
         }

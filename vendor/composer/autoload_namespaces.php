@@ -19,8 +19,6 @@ return array(
     'Symfony\\Component\\BrowserKit\\' => $vendorDir . '/symfony/browser-kit/',
     'Psr\\Log\\' => $vendorDir . '/psr/log/',
     'Monolog' => $vendorDir . '/monolog/monolog/src/',
-    'Meido\\HTML' => $vendorDir . '/meido/html/src/',
-    'Meido\\Form' => $vendorDir . '/meido/form/src/',
+    'LaravelBook\\Laravel4Powerpack' => $vendorDir . '/laravelbook/laravel4-powerpack/src/',
     'Illuminate' => $vendorDir . '/laravel/framework/src/',
-    'BigElephant\\String' => $vendorDir . '/bigelephant/string/src/',
 );
