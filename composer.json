@@ -1,8 +1,8 @@
 {
 	"require": {
 		"laravel/framework": "4.0.*",
-        "laravelbook/laravel4-powerpack": "dev-master",
-        "raveren/kint": "dev-master"
+        "raveren/kint": "dev-master",
+		"way/generators": "dev-master"
     },
 
     "require-dev": {

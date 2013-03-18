@@ -23,7 +23,7 @@ class SessionController extends BaseController {
         $input = Input::get();
 
         // Get $email and $password from $input
-        $email = String::lower($input['email']);
+        $email = Str::lower($input['email']);
         $password = $input['password'];
 
         // Validation rules

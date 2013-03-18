@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'CTX0j2hJtGr49s5yRQT5DJa1bX4heVCv',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -110,7 +110,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-        'LaravelBook\Laravel4Powerpack\Providers\PowerpackServiceProvider',
+
+		// Custom providers
+		'Way\Generators\GeneratorsServiceProvider',
 
 	),
 
@@ -176,9 +178,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-        'HTML'            => 'LaravelBook\Laravel4Powerpack\Facades\HTMLFacade',
-        'Form'            => 'LaravelBook\Laravel4Powerpack\Facades\FormFacade',
-        'String'             => 'LaravelBook\Laravel4Powerpack\Facades\StrFacade',
+
+		// Custom aliases
 
 	),
 

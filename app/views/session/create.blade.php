@@ -8,7 +8,7 @@
 
         <div class="offset4 span4">
 
-            {{{ Form::open(null, 'POST', array('class' => 'form-signin')) }}}
+            {{ Form::open([], 'POST', array('class' => 'form-signin')) }}
 
             <fieldset>
                 <h2 class="form-signin-heading">Please sign in</h2>
@@ -28,22 +28,22 @@
 
                 {{-- Check for validation errors and group them in a single alert box --}}
 
-                {{{ $errors->any() ? '<div class="alert alert-error">' : '' }}}
-                    {{{ $errors->has('first_name') ? '<li>' . $errors->first('first_name') . '</li>' : '' }}}
-                    {{{ $errors->has('last_name') ? '<li>' . $errors->first('last_name') . '</li>' : '' }}}
-                    {{{ $errors->has('email') ? '<li>' . $errors->first('email') . '</li>' : '' }}}
-                    {{{ $errors->has('password') ? '<li>' . $errors->first('password') . '</li>' : '' }}}
-                    {{{ $errors->any() ? '</div>' : '' }}}
+                {{ $errors->any() ? '<div class="alert alert-error">' : '' }}
+                    {{ $errors->has('first_name') ? '<li>' . $errors->first('first_name') . '</li>' : '' }}
+                    {{ $errors->has('last_name') ? '<li>' . $errors->first('last_name') . '</li>' : '' }}
+                    {{ $errors->has('email') ? '<li>' . $errors->first('email') . '</li>' : '' }}
+                    {{ $errors->has('password') ? '<li>' . $errors->first('password') . '</li>' : '' }}
+                    {{ $errors->any() ? '</div>' : '' }}
 
                 <div class="control-group {{ $errors->has('email') ? 'error' : '' }} ">
-                    {{{ Form::text( 'email', '', array('placeholder' => 'Email', 'class' => 'input-block-level') ) }}}
+                    {{ Form::text( 'email', '', array('placeholder' => 'Email', 'class' => 'input-block-level') ) }}
                 </div>
                 <div class="control-group {{ $errors->has('password') ? 'error' : '' }} ">
-                    {{{ Form::password( 'password', array('placeholder' => 'Password', 'class' => 'input-block-level') ) }}}
+                    {{ Form::password( 'password', array('placeholder' => 'Password', 'class' => 'input-block-level') ) }}
                 </div>
                 <p>
-                    {{{ Form::submit('Log in', array('class' => 'btn btn-large btn-primary')) }}}
-                    {{{ Form::close() }}}
+                    {{ Form::submit('Log in', array('class' => 'btn btn-large btn-primary')) }}
+                    {{ Form::close() }}
                 </p>
             </fieldset>
         </div>
