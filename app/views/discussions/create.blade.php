@@ -2,27 +2,27 @@
 
 @section('content')
 <div class="span8">
-    {{{ Form::open(action('DiscussionsController@store', [Group::current()->id]), 'POST', ['class' => 'center']) }}}
+    {{ Form::open(['method' => 'POST'], ['action' => 'DiscussionsController@store'], [Group::current()->id], ['class' => 'center']) }}
     <form>
         <fieldset>
             <legend>Start a new discussion.</legend>
             {{-- Check for validation errors and group them in a single alert box --}}
-            {{{ $errors->any() ? '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>' : '' }}}
-                {{{ $errors->has('title') ? '<li>' . $errors->first('title') . '</li>' : '' }}}
-                {{{ $errors->has('post') ? '<li>' . $errors->first('post') . '</li>' : '' }}}
-                {{{ $errors->any() ? '</div>' : '' }}}
+            {{ $errors->any() ? '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>' : '' }}
+                {{ $errors->has('title') ? '<li>' . $errors->first('title') . '</li>' : '' }}
+                {{ $errors->has('post') ? '<li>' . $errors->first('post') . '</li>' : '' }}
+                {{ $errors->any() ? '</div>' : '' }}
 
             <div class="control-group {{ $errors->has('title') ? 'error' : '' }} ">
-                {{{ Form::text( 'title', Input::old('title', ''), ['placeholder' => 'Title'] ) }}}
+                {{ Form::text( 'title', Input::old('title', ''), ['placeholder' => 'Title'] ) }}
             </div>
 
             <div class="control-group {{ $errors->has('post') ? 'error' : '' }} ">
-                {{{ Form::textarea( 'post', Input::old('post'), ['placeholder' => 'Start a discussion'] ) }}}
+                {{ Form::textarea( 'post', Input::old('post'), ['placeholder' => 'Start a discussion'] ) }}
             </div>
             <p>
-                {{{ Form::submit('Post', array('class' => 'btn btn-primary')) }}}
+                {{ Form::submit('Post', array('class' => 'btn btn-primary')) }}
             </p>
         </fieldset>
-        {{{ Form::close() }}}
+        {{ Form::close() }}
 </div>
 @stop

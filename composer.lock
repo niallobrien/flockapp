@@ -1,5 +1,5 @@
 {
-    "hash": "073234b09e85023aeab93e4d9765d054",
+    "hash": "ce0ff7dc95ba9c568b3ca3e3854c29a5",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -93,12 +93,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "20f141a86a0a125d12f5263dd94c43c2af6fe9c2"
+                "reference": "c4c9c7f700e49ce0e3599a628c97062d9d08bc3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/20f141a86a0a125d12f5263dd94c43c2af6fe9c2",
-                "reference": "20f141a86a0a125d12f5263dd94c43c2af6fe9c2",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c4c9c7f700e49ce0e3599a628c97062d9d08bc3b",
+                "reference": "c4c9c7f700e49ce0e3599a628c97062d9d08bc3b",
                 "shasum": ""
             },
             "require": {
@@ -186,7 +186,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-03-18 18:34:58"
+            "time": "2013-03-18 22:09:02"
         },
         {
             "name": "monolog/monolog",
@@ -427,7 +427,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/swiftmailer/swiftmailer.git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
                 "reference": "b6bfc8f7f8ae5dac7883885ee323dc3b53ab7d21"
             },
             "dist": {
