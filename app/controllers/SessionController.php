@@ -27,10 +27,7 @@ class SessionController extends BaseController {
         $password = $input['password'];
 
         // Validation rules
-        $rules = array(
-            'email'     => 'required|email',
-            'password'  => 'required'
-        );
+        $rules = ['email' => 'required|email', 'password' => 'required'];
 
         $validation = Validator::make($input, $rules);
 
@@ -40,17 +37,13 @@ class SessionController extends BaseController {
         }
 
         // Now we try to authenticate the user
-        if (Auth::attempt(['email' => $email, 'password'  => $password]))
-        {
+        if (Auth::attempt(['email' => $email, 'password'  => $password])) {
             // We are now logged in
             return Redirect::action('UsersController@show', [Auth::user()->id]);
-        }
-        else
-        {
+        } else {
             // Auth failure
             return Redirect::back()->with('loginErrors', true);
         }
-
     }
 
 
