@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="span8">
-    {{ Form::open(action('DiscussionsController@store', [Group::current()->id]), 'POST', ['class' => 'center']) }}
+    {{ Form::open(['action' => ['DiscussionsController@store', Group::current()->id], 'class' => 'center']) }}
     <form>
         <fieldset>
             <legend>Start a new discussion.</legend>

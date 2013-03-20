@@ -113,12 +113,12 @@ class GroupsController extends BaseController {
         $input = Input::get();
 
         // Get info from $input
-        $group = $input['group'];
+        $title = $input['title'];
         $description = $input['description'];
         $category = $input['category'];
 
         // Validation rules
-        $rules = ['group'=> 'required'];
+        $rules = ['title' => 'required'];
         $validation = Validator::make($input, $rules);
 
         // If input fails redirect with errors and old input
@@ -130,7 +130,7 @@ class GroupsController extends BaseController {
         else {
             // Update group
             $group = Group::find($id);
-            $group->group = $group;
+            $group->title = $title;
             $group->description = $description;
             $group->category = $category;
             $group->save();

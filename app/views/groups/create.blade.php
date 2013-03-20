@@ -3,7 +3,7 @@
 @section('content')
 <div class="span8">
 
-    {{ Form::open('flocks', 'POST', ['class' => 'form-signin']) }}
+    {{ Form::open(['url' => 'flocks', 'class' => 'form-signin']) }}
     <fieldset>
 
         {{-- Check for validation errors and group them in a single alert box --}}

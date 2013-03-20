@@ -8,7 +8,7 @@
 
         <div class="offset4 span4">
 
-            {{ Form::open([], 'POST', array('class' => 'form-signin')) }}
+            {{ Form::open(['array' => 'form-signin']) }}
 
             <fieldset>
                 <h2 class="form-signin-heading">Please sign in</h2>

@@ -17,7 +17,7 @@
     </div>
     @endforeach
     <p>
-        {{ Form::open(['method' => 'POST'], ['action' => 'PostsController@store'], [Group::current()->id, Discussion::current()->id]) }}
+        {{ Form::open(['action' => ['PostsController@store', Group::current()->id, Discussion::current()->id]]) }}
         {{ Form::textarea('content', '', ['class' => 'input-block-level', 'placeholder' => 'Comment']) }}
         {{ Form::submit('Reply', ['class' => 'btn btn-small btn-success']) }}
         {{ Form::close() }}
