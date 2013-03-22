@@ -32,16 +32,21 @@ Route::get('logout', 'SessionController@destroy');
 //Route::group(['before' => 'auth', 'https'], function()
 Route::group(['before' => 'auth'], function()
 {
+	Route::get('flocks/{GroupsId}/discussions/{DiscussionsId}/posts/{postsId}/fork', 'DiscussionsController@getFork')
+	->where('GroupsId', '\d+')
+	->where('DiscussionsId', '\d+')
+	->where('PostsId', '\d+');
+
     // user Resource
     Route::resource('users', 'UsersController');
 
-// flock Resource
+	// flock Resource
     Route::resource('flocks', 'GroupsController');
 
-// discusions Resource
+	// discusions Resource
     Route::resource('flocks.discussions', 'DiscussionsController');
 
-// posts Resource
+	// posts Resource
     Route::resource('flocks.discussions.posts', 'PostsController');
 });
 

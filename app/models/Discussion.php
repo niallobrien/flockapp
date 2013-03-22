@@ -30,6 +30,28 @@ class Discussion extends Eloquent {
     }
 
     /**
+     * Associate with Discussion (1:n)
+     * Self-referential relationship on parent_id column for forking feature
+     * 
+     * @return relationship
+     */
+    public function parent()
+    {
+        return $this->belongsTo('Discussion', 'parent_id');
+    }
+
+    /**
+     * Associate with Discussion (n:1)
+     * Self-referential relationship on parent_id column for forking feature
+     * 
+     * @return relationship
+     */
+    public function children()
+    {
+        return $this->hasMany('Discussion', 'parent_id');
+    }
+
+    /**
      * Find currently selected discussion.
      *
      * @return mixed

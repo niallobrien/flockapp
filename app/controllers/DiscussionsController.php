@@ -3,14 +3,6 @@
 class DiscussionsController extends BaseController {
 
     /**
-     * Instantiate a new DiscussionsController instance.
-     */
-    public function __construct()
-    {
-        $this->beforeFilter('hasAccessToDiscussion');
-    }
-
-    /**
      * Display a listing of the resource.
      *
      * @return Response
@@ -120,4 +112,32 @@ class DiscussionsController extends BaseController {
         $discussion->delete();
         return Redirect::action('GroupsController@show', [Group::current()->id]);
     }
+
+    /**
+     * Show the form for forking a dicussion at a specific post
+     * 
+     * @param  integer $groupId
+     * @param  integer $discussionId
+     * @param  integer $postId
+     * @return Response
+     */
+    public function getFork($groupId, $discussionId, $postId)
+    {
+        return View::make('discussions.fork');
+    }
+
+    /**
+     * Show the form for forking a dicussion at a specific post
+     * 
+     * @param  integer $groupId
+     * @param  integer $discussionId
+     * @param  integer $postId
+     * @return Response
+     */
+    public function postFork($groupId, $discussionId, $postId)
+    {
+        return View::make('discussions.fork');
+    }
+
+
 }
