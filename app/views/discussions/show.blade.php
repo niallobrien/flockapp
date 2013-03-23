@@ -3,10 +3,16 @@
 @section('content')
 <div class="span8">
     <div>
-        <a href="{{ URL::action('GroupsController@show', [Group::current()->id]) }}">{{ Group::current()->title }}</a> >
-        {{ $discussion->title }}
+        @if ($forkedDiscussion != null)
+            This discussion is forked from <a href="
+            {{ URL::action('DiscussionsController@show', [Group::current()->id, $forkedDiscussion->id]) }}">
+            {{ $forkedDiscussion->title }}</a>.
+        @else
+            <a href="{{ URL::action('GroupsController@show', [Group::current()->id]) }}">{{ Group::current()->title }}</a> >
+            {{ $discussion->title }}
+        @endif
     </div>
-    <a href="{{ URL::action('DiscussionsController@destroy', [Group::current()->id, $discussion->id]) }}" data-method="delete">Delete discussion</a>
+    <a href="{{ URL::action('DiscussionsController@destroy', [Group::current()->id, $discussion->id]) }}" data-method="delete">Delete this discussion</a>
     @foreach ($discussion->posts as $post)
     <div class="well discussion-post">
         <strong>{{ $post->user->fullName() }}</strong>

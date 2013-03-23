@@ -20,7 +20,7 @@ class DiscussionsController extends BaseController {
     public function create()
     {
         return View::make('discussions.create')
-            ->with('group', Group::current());
+        ->with('group', Group::current());
     }
 
     /**
@@ -48,8 +48,8 @@ class DiscussionsController extends BaseController {
         // If input fails redirect with errors and old input
         if ($validation->fails()) {
             return Redirect::back()
-                ->withErrors($validation)
-                ->withInput();
+            ->withErrors($validation)
+            ->withInput();
         }
         else {
             // Insert new discussion
@@ -74,8 +74,16 @@ class DiscussionsController extends BaseController {
     {
         if ( Auth::user()->hasAccessToDiscussion($discussionId) ) {
             $discussion = Discussion::find($discussionId);
+            // Check to see if this discussion is a fork
+            if ($discussion->parent_discussion_id > 0) {
+                $forkedDiscussion = Discussion::find($discussion->parent_discussion_id);
+            } else {
+                $forkedDiscussion = null;
+            }
+
             return View::make('discussions.show')
-                ->with('discussion', $discussion);
+            ->with('discussion', $discussion)
+            ->with('forkedDiscussion', $forkedDiscussion);
         } else {
             return View::make('errors.denied');
         }
@@ -123,21 +131,64 @@ class DiscussionsController extends BaseController {
      */
     public function getFork($groupId, $discussionId, $postId)
     {
-        return View::make('discussions.fork');
+        $group = Group::find($groupId);
+        $discussion = Discussion::find($discussionId);
+        $post = Post::find($postId);
+
+        return View::make('discussions.fork')
+        ->with('group', $group)
+        ->with('discussion', $discussion)
+        ->with('post', $post);
     }
 
     /**
-     * Show the form for forking a dicussion at a specific post
+     * Store the forked discussion
      * 
-     * @param  integer $groupId
-     * @param  integer $discussionId
-     * @param  integer $postId
      * @return Response
      */
-    public function postFork($groupId, $discussionId, $postId)
+    public function postFork()
     {
-        return View::make('discussions.fork');
-    }
+        // Get POST data
+        $input = Input::get();
 
+        // Get info from $input
+        $title = $input['title'];
+        $postContent = $input['post'];
+
+        // Grab other fields to store the relationships
+        $parentDiscussionId = $input['parentDiscussionId'];
+        $parentPostId = $input['parentPostId'];
+
+        /*
+        *   TODO: Learn how to refactor validations into their own methods
+        */
+
+        // Validation rules
+        $rules = ['title'=> 'required', 'post' => 'required'];
+        $validation = Validator::make($input, $rules);
+
+        // If input fails redirect with errors and old input
+        if ($validation->fails()) {
+            return Redirect::back()
+            ->withErrors($validation)
+            ->withInput();
+        }
+        else {
+            // Insert new discussion and related info for forks
+            $discussion  = new Discussion([
+                'title' => $title,
+                'parent_discussion_id' => $parentDiscussionId,
+                'parent_post_id' => $parentPostId
+                ]);
+            $group = Group::current();
+            $discussion = $group->discussions()->save($discussion);
+
+            // Insert first post to discussion
+            $post = new Post(['content' => $postContent, 'user_id' => Auth::user()->id]);
+            $post = $discussion->posts()->save($post);
+
+            return Redirect::action('DiscussionsController@show', [Group::current()->id, $discussion->id]);
+        }
+    }
 
 }

@@ -32,11 +32,6 @@ Route::get('logout', 'SessionController@destroy');
 //Route::group(['before' => 'auth', 'https'], function()
 Route::group(['before' => 'auth'], function()
 {
-	Route::get('flocks/{GroupsId}/discussions/{DiscussionsId}/posts/{postsId}/fork', 'DiscussionsController@getFork')
-	->where('GroupsId', '\d+')
-	->where('DiscussionsId', '\d+')
-	->where('PostsId', '\d+');
-
     // user Resource
     Route::resource('users', 'UsersController');
 
@@ -48,6 +43,14 @@ Route::group(['before' => 'auth'], function()
 
 	// posts Resource
     Route::resource('flocks.discussions.posts', 'PostsController');
+
+    // extra routes
+    Route::get('flocks/{GroupsId}/discussions/{DiscussionsId}/posts/{postsId}/fork', 'DiscussionsController@getFork')
+    ->where('GroupsId', '\d+')
+    ->where('DiscussionsId', '\d+')
+    ->where('PostsId', '\d+');
+    Route::post('flocks/{GroupsId}/discussions/{DiscussionsId}/posts/{postsId}/fork', 'DiscussionsController@postFork');
+
 });
 
 
