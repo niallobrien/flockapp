@@ -77,13 +77,16 @@ class DiscussionsController extends BaseController {
             // Check to see if this discussion is a fork
             if ($discussion->parent_discussion_id > 0) {
                 $forkedDiscussion = Discussion::find($discussion->parent_discussion_id);
+                $forkedPost = Post::find($discussion->parent_post_id);
             } else {
                 $forkedDiscussion = null;
+                $forkedPost = null;
             }
 
             return View::make('discussions.show')
             ->with('discussion', $discussion)
-            ->with('forkedDiscussion', $forkedDiscussion);
+            ->with('forkedDiscussion', $forkedDiscussion)
+            ->with('forkedPost', $forkedPost);
         } else {
             return View::make('errors.denied');
         }

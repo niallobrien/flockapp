@@ -5271,6 +5271,13 @@ body {
   -moz-border-radius: 25px;
   border-radius: 25px;
 }
+.discussion-post:before {
+  display: block;
+  content: " ";
+  margin-top: -50px;
+  height: 50px;
+  visibility: hidden;
+}
 /* Insert Bootstrap over-rides here */
 body {
   background-color: white;

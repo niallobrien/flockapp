@@ -82,7 +82,7 @@ class UsersController extends BaseController {
         if (Auth::user()->id == $id)
         {
             // Get all discussions the user is a member of
-            $posts = Auth::user()->posts;
+            $posts = Auth::user()->posts()->orderBy('id', 'desc')->get();
             return View::make('users.show')
                 ->with('posts', $posts);
         }

@@ -72,7 +72,7 @@ require __DIR__.'/../filters.php';
 |
 | See app/views/layouts/app.blade.php to see how we're using vars for
 | views, these views (sidebars etc.) can then be easily changed when
-| need be.
+| need be in a controller, by specifying a new var in View::share()
 */
 
 View::share('_sidebarLeft', 'layouts._sidebar-left');
