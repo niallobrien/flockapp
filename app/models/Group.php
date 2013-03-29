@@ -2,6 +2,8 @@
 
 class Group extends Eloquent {
 
+    protected $fillable = ['title'];
+
     /**
      * The database table used by the model.
      *
@@ -49,11 +51,11 @@ class Group extends Eloquent {
         // Check for discussions belonging to the group first
         if ($this->discussions) {
             foreach ($this->discussions as $discussion) {
-                $discussion->delete();
+                $discussion->hardDelete();
             }
         }
         // Remove entry in group_user pivot table
-        $this->users()->delete();
+        $this->users()->detach();
 
         // Now delete the group
         return parent::delete();

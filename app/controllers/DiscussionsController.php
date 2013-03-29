@@ -74,6 +74,10 @@ class DiscussionsController extends BaseController {
     {
         if ( Auth::user()->hasAccessToDiscussion($discussionId) ) {
             $discussion = Discussion::find($discussionId);
+
+            // Is it a soft-deleted discussion?
+            if($discussion->deleted;
+
             // Check to see if this discussion is a fork
             if ($discussion->parent_discussion_id > 0) {
                 $forkedDiscussion = Discussion::find($discussion->parent_discussion_id);
@@ -120,7 +124,7 @@ class DiscussionsController extends BaseController {
     public function destroy($groupId, $discussionId)
     {
         $discussion = Discussion::find($discussionId);
-        $discussion->delete();
+        $discussion->softDelete();
         return Redirect::action('GroupsController@show', [Group::current()->id]);
     }
 

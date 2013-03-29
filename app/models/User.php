@@ -4,6 +4,8 @@ use Illuminate\Auth\UserInterface;
 
 class User extends Eloquent implements UserInterface {
 
+    protected $fillable = ['first_name', 'last_name', 'email', 'password'];
+
     /**
      * The database table used by the model.
      *

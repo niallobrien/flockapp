@@ -33,8 +33,8 @@ class UsersController extends BaseController {
         $input = Input::get();
 
         // Get $email and $password from $input
-        $first_name = $input['first_name'];
-        $last_name = $input['last_name'];
+        $firstName = $input['first_name'];
+        $lastName = $input['last_name'];
         $email = strtolower($input['email']);
         $password = $input['password'];
 
@@ -61,8 +61,8 @@ class UsersController extends BaseController {
         else {
             // create new user
             $user = User::create([
-                'first_name' => $first_name,
-                'last_name' => $last_name,
+                'first_name' => $firstName,
+                'last_name' => $lastName,
                 'email' => $email,
                 'password' => Hash::make($password)
             ]);

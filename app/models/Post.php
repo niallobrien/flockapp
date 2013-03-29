@@ -2,6 +2,8 @@
 
 class Post extends Eloquent {
 
+    protected $fillable = ['content', 'user_id'];
+
     /**
      * Associate with Discussions (1:n).
      *

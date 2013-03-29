@@ -146,6 +146,7 @@ class GroupsController extends BaseController {
     public function destroy($id)
     {
         $group = Group::find($id);
+        
         $group->delete();
         return Redirect::action('UsersController@show', [Auth::user()->id]);
     }

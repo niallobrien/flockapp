@@ -2,6 +2,8 @@
 
 class Discussion extends Eloquent {
 
+    protected $fillable = ['title'];
+
     /**
      * The database table used by the model.
      *
@@ -32,7 +34,7 @@ class Discussion extends Eloquent {
     /**
      * Associate with Discussion (1:n)
      * Self-referential relationship on parent_id column for forking feature
-     * 
+     *
      * @return relationship
      */
     public function parent()
@@ -43,7 +45,7 @@ class Discussion extends Eloquent {
     /**
      * Associate with Discussion (n:1)
      * Self-referential relationship on parent_id column for forking feature
-     * 
+     *
      * @return relationship
      */
     public function children()
@@ -61,7 +63,12 @@ class Discussion extends Eloquent {
         return parent::find(Request::segment(4));
     }
 
-    function delete()
+    /**
+     * Permanently remove the discussion from db storage
+     *
+     * @return mixed
+     */
+    function hardDelete()
     {
         // Check for posts to discussion first
         if ($this->posts) {
@@ -71,5 +78,33 @@ class Discussion extends Eloquent {
         }
         // Now delete the discussion
         return parent::delete();
+    }
+
+    /**
+     * Flag the discussion as deleted, but keep in db storage
+     * This is primarly useful for ensuring that discussion are not orphaned
+     *
+     * @return int
+     */
+    function softDelete()
+    {
+        // Don't delete the discussion, just change the flag so it appears to be deleted
+        if($this->is_deleted = 0) {
+            return $this->is_deleted = 1;
+        }
+    }
+
+    /**
+     * Is this discussion marked as deleted (soft-delete)?
+     * 
+     * @return boolean
+     */
+    function deleted()
+    {
+        if($this->is_deleted = 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
