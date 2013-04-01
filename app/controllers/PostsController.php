@@ -98,7 +98,7 @@ class PostsController extends BaseController {
         // If we're deleting the only post in the discussion, remove the discussion too.
         $discussion = Discussion::find($discussionId);
         if ($discussion->posts()->count() == 1) {
-            $discussion->delete();
+            $discussion->softDelete();
             return Redirect::action('GroupsController@show', [Group::current()->id]);
         }
 

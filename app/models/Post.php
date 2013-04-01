@@ -28,4 +28,9 @@ class Post extends Eloquent {
     {
         return parent::delete();
     }
+
+    public function postable()
+    {
+        return $this->morphTo();
+    }
 }

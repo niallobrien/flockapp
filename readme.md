@@ -1,4 +1,0 @@
-flockapp
-========
-
-Group collaboration platform

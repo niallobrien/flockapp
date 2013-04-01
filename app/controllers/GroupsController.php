@@ -68,7 +68,7 @@ class GroupsController extends BaseController {
     {
         if (Auth::user()->hasAccessToGroup($id)) {
             $group = Group::find($id);
-            $discussions = $group->discussions()->get();
+            $discussions = $group->discussions()->active()->get();
 
             // Swap out the sidebar defined in our app master layout (also see start/global.php)
             View::share('_sidebarLeft', 'groups._sidebar-left');

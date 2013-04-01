@@ -2,7 +2,7 @@
 
 class Discussion extends Eloquent {
 
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'parent_discussion_id', 'parent_post_id'];
 
     /**
      * The database table used by the model.
@@ -22,13 +22,13 @@ class Discussion extends Eloquent {
     }
 
     /**
-     * Associate with Posts (1:n).
+     * Polymorphic relationship with Posts.
      *
      * @return relationship
      */
     public function posts()
     {
-        return $this->hasMany('Post');
+        return $this->morphMany('Post', 'postable');
     }
 
     /**
@@ -68,7 +68,7 @@ class Discussion extends Eloquent {
      *
      * @return mixed
      */
-    function hardDelete()
+    public function hardDelete()
     {
         // Check for posts to discussion first
         if ($this->posts) {
@@ -86,11 +86,12 @@ class Discussion extends Eloquent {
      *
      * @return int
      */
-    function softDelete()
+    public function softDelete()
     {
         // Don't delete the discussion, just change the flag so it appears to be deleted
-        if($this->is_deleted = 0) {
-            return $this->is_deleted = 1;
+        if($this->is_deleted == 0) {
+            $this->is_deleted = 1;
+            return $this->save();
         }
     }
 
@@ -99,12 +100,34 @@ class Discussion extends Eloquent {
      * 
      * @return boolean
      */
-    function deleted()
+    public function removed()
     {
-        if($this->is_deleted = 1) {
+        if($this->is_deleted == '1') {
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * Scoped query to see if discussion is active
+     * 
+     * @param  $query
+     * @return mixed
+     */
+    public function scopeActive($query)
+    {
+        $query->where('is_deleted', 0);
+    }
+
+    /**
+     * Scoped query to see if discussion is inactive (soft-deleted)
+     * 
+     * @param  $query
+     * @return mixed
+     */
+    public function scopeInactive($query)
+    {
+        $query->where('is_deleted', 1);
     }
 }

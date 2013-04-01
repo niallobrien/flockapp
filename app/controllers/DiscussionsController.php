@@ -74,9 +74,11 @@ class DiscussionsController extends BaseController {
     {
         if ( Auth::user()->hasAccessToDiscussion($discussionId) ) {
             $discussion = Discussion::find($discussionId);
-
             // Is it a soft-deleted discussion?
-            if($discussion->deleted;
+            if($discussion->removed()) {
+                // Discussion no longer exists
+                return View::make('discussions.not_found');
+            }
 
             // Check to see if this discussion is a fork
             if ($discussion->parent_discussion_id > 0) {
