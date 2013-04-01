@@ -3,13 +3,15 @@
 @section('content')
 <div class="span8">
     <div>
-        @if ($forkedDiscussion != null)
-        This discussion is forked from <a href="
-        {{ URL::action('DiscussionsController@show', [Group::current()->id, $forkedDiscussion->id]) . 
-        "#post-" . $forkedPost->id }}">{{ $forkedDiscussion->title }}</a>.
-        @else
-        <a href="{{ URL::action('GroupsController@show', [Group::current()->id]) }}">{{ Group::current()->title }}</a> >
-        {{ $discussion->title }}
+        @if($forkedDiscussion != null)
+            @if ($forkedPost != null)
+                This discussion is forked from <a href="
+                {{ URL::action('DiscussionsController@show', [Group::current()->id, $forkedDiscussion->id]) . 
+                "#post-" . $forkedPost->id }}">{{ $forkedDiscussion->title }}</a>.
+            @else
+                <a href="{{ URL::action('GroupsController@show', [Group::current()->id]) }}">{{ Group::current()->title }}</a> >
+                {{ $discussion->title }}
+           @endif
         @endif
     </div>
     <a href="{{ URL::action('DiscussionsController@destroy', [Group::current()->id, $discussion->id]) }}" data-method="delete">Delete this discussion</a>

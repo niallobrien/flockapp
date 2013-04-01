@@ -100,7 +100,7 @@ class Discussion extends Eloquent {
      * 
      * @return boolean
      */
-    public function removed()
+    public function hasBeenRemoved()
     {
         if($this->is_deleted == '1') {
             return true;
