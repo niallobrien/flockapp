@@ -6,7 +6,7 @@
         @if($forkedDiscussion != null)
             @if ($forkedPost != null)
                 This discussion is forked from <a href="
-                {{ URL::action('DiscussionsController@show', [Group::current()->id, $forkedDiscussion->id]) . 
+                {{ URL::action('DiscussionsController@show', [Group::current()->id, $forkedDiscussion->id]) .
                 "#post-" . $forkedPost->id }}">{{ $forkedDiscussion->title }}</a>.
             @else
                 <a href="{{ URL::action('GroupsController@show', [Group::current()->id]) }}">{{ Group::current()->title }}</a> >
