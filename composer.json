@@ -2,7 +2,11 @@
 	"require": {
 		"laravel/framework": "4.0.*",
         "raveren/kint": "dev-master",
-		"way/generators": "dev-master"
+		"way/generators": "dev-master",
+		"stripe/stripe-php": "1.7.*",
+		"iron-io/iron_core": "dev-master",
+		"iron-io/iron_mq": "dev-master",
+		"mandrill/mandrill": "1.0.19"
     },
 
     "require-dev": {
