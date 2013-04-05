@@ -2,7 +2,7 @@
 	"require": {
 		"laravel/framework": "4.0.*",
         "raveren/kint": "dev-master",
-		"way/generators": "dev-master",
+		"way/generators": "dev-master"
     },
 
     "require-dev": {
