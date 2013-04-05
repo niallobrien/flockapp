@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@index');
 
 Route::get('test', function()
     {
-        Queue::push('SendEmail', array('message' => $message));
+        Queue::push('SendEmail', array('message' => 'Queue test successful'));
     });
 
 Route::get('register', 'UsersController@create');
