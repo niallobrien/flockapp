@@ -4,9 +4,12 @@ class SendEmail {
 
     public function fire($job, $data)
     {
-        $user = User::find(1000);
-        $user->first_name = "Jason";
-        $user->save();
+    	Mail::send('emails.welcome', $data, function($m)
+    	{
+    		$m->from('us@example.com', 'Laravel');
+    	    $m->to('digitaldelusions@gmail.com', 'John Smith')->subject('Welcome!');
+    	});
+
         $job->delete();
     }
 
