@@ -66,6 +66,14 @@ App::error(function(Exception $exception, $code)
 
 require __DIR__.'/../filters.php';
 
+
+/*
+|--------------------------------------------------------------------------
+| FlockApp
+|--------------------------------------------------------------------------
+*/
+require __DIR__.'/../lib/QueueHandler/SendMail.php';
+
 /*
 |--------------------------------------------------------------------------
 | Define initial views - FlockApp

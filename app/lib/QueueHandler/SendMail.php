@@ -1,6 +1,6 @@
 <?php
 
-class SendEmail extends Eloquent {
+class SendEmail {
 
     public function fire($job, $data)
     {
