@@ -18,6 +18,11 @@ Route::get('blog', 'HomeController@blog');
 Route::get('help', 'HomeController@help');
 Route::get('/', 'HomeController@index');
 
+Route::get('test', function()
+    {
+        Queue::push('SendEmail', array('message' => $message));
+    });
+
 Route::get('register', 'UsersController@create');
 Route::post('register', 'UsersController@store');
 
