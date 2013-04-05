@@ -54,8 +54,8 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'flockapp.mysql.eu1.frbit.com',
+			'host'      => 'flockapp.mysql.eu1.frbit.com',
+			'database'  => 'flockapp',
 			'username'  => 'flockapp',
 			'password'  => 'oCFRasR10l04Q7Z9',
 			'charset'   => 'utf8',
