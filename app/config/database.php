@@ -57,7 +57,7 @@ return array(
 			'host'      => 'flockapp.mysql.eu1.frbit.com',
 			'database'  => 'flockapp',
 			'username'  => 'flockapp',
-			'password'  => 'oCFRasR10l04Q7Z9',
+			'password'  => 'VHLJQ4tOJkFCqoc_',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

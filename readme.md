@@ -5,3 +5,5 @@ Username: u-flockapp
 Password: oCFRasR10l04Q7Z9
 
 Shortcut: u-flockapp@ssh1.eu1.frbit.com
+
+mySQL DB Paddword: VHLJQ4tOJkFCqoc_
