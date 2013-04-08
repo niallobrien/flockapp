@@ -19,9 +19,18 @@ Route::get('help', 'HomeController@help');
 Route::get('/', 'HomeController@index');
 
 Route::get('test', function()
+{
+    Queue::push('SendEmail', array('message' => 'Queue test successful'));
+});
+
+Route::get('mail', function()
+{
+    Mail::send('emails.welcome', [], function($m)
     {
-        Queue::push('SendEmail', array('message' => 'Queue test successful'));
+        $m->from('me@niallobrien.me', 'Laravel');
+        $m->to('digitaldelusions@gmail.com', 'John Smith')->subject('Welcome!');
     });
+});
 
 Route::get('register', 'UsersController@create');
 Route::post('register', 'UsersController@store');
