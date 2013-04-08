@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'flockapp.mysql.eu1.frbit.com',
+			'host'      => 'localhost',
 			'database'  => 'flockapp',
-			'username'  => 'flockapp',
-			'password'  => 'VHLJQ4tOJkFCqoc_',
+			'username'  => 'root',
+			'password'  => 'Beforethefl00d054',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
