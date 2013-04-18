@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="span8">
+<div class="col-span-8">
     <h1>Activity Stream</h1>
     <div class="well">
         @foreach ($posts as $post)

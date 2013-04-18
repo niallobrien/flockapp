@@ -1,4 +1,4 @@
-<div class="span2">
+<div class="col-span-2">
     <p>
         <a href="{{ URL::action('GroupsController@show', [Group::current()->id]) }}">
             <img src="http://placehold.it/100x100" alt="" class="center">

@@ -1,4 +1,4 @@
-<div class="span2">
+<div class="col-span-2">
     <p>
         Flocks
         <a href="{{ URL::action('GroupsController@create') }}" class="btn btn-small">Create</a>

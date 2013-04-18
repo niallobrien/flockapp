@@ -6,9 +6,9 @@
 
         {{-- Center bootstrap divs, set the classes so 2 * offsetClass + span class = 12 columns. --}}
 
-        <div class="offset4 span4">
+        <div class="col-offset-4 col-span-4">
 
-            {{ Form::open(['array' => 'form-signin']) }}
+            {{ Form::open(['class' => 'form-horizontal']) }}
 
             <fieldset>
                 <h2 class="form-signin-heading">Please sign in</h2>

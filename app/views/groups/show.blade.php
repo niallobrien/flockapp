@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="span8">
+<div class="col-span-8">
     <h2>{{ Group::current()->title }}</h2>
     @if($discussions->isEmpty())
     <p>
