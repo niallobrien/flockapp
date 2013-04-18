@@ -115,6 +115,7 @@ return array(
 
 		// Custom providers
 		'Way\Generators\GeneratorsServiceProvider',
+		'Way\Console\GuardLaravelServiceProvider',
 
 	),
 

@@ -1,8 +1,6 @@
 {
 	"require": {
 		"laravel/framework": "4.0.*",
-        "raveren/kint": "dev-master",
-		"way/generators": "dev-master",
 		"stripe/stripe-php": "1.7.*",
 		"iron-io/iron_core": "dev-master",
 		"iron-io/iron_mq": "dev-master",
@@ -10,7 +8,11 @@
     },
 
     "require-dev": {
-        "phpunit/phpunit": "3.7.*"
+        "phpunit/phpunit": "3.7.*",
+        "way/guard-laravel": "dev-master",
+        "raveren/kint": "dev-master",
+        "way/generators": "dev-master"
+
     },
     
 	"autoload": {
