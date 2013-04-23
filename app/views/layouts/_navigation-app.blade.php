@@ -1,9 +1,15 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
+            <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
             <a href="{{ URL::action('UsersController@show', [Auth::user()->id]) }}" class="navbar-brand">FlockApp</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
+            <div class="nav-collapse collapse navbar-responsive-collapse">
+                <ul class="nav hidden-desktop">
                     <li><a href="{{ URL::action('UsersController@show', [Auth::user()->id]) }}">Home</a></li>
                     <li class="divider-vertical"></li>
 
@@ -31,7 +37,7 @@
                     <li class="divider-vertical"></li>
                     <li><a href="{{ URL::action('HomeController@help') }}">Help</a></li>
                 </ul>
-                <ul class="nav pull-right">
+                <ul class="nav pull-left hidden-desktop">
                     <li class="dropdown">
                         <a id="profile-dropdown-link" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
                             {{ Auth::user()->fullName() }}

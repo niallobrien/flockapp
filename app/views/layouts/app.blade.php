@@ -30,6 +30,7 @@
 </head>
 
 <body>
+@include('layouts._navigation-sidebar')
 @include('layouts._navigation-app')
 <div class="container">
     <div class="row">

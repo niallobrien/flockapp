@@ -1,0 +1,88 @@
+// Adjust the main container as phones won't display the sidebar
+@media (min-width: 768px) {
+	.container {
+		margin-left: 120px;
+	}
+}
+
+#sidebar-nav {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background-color: @dark-gray;
+	width: 115px;
+	// Sit on top of Bootstrap's fixed horizontal nav
+	z-index: 1031;
+
+	// Center contents
+	.center;
+
+	padding: 25px 0;
+
+	#profile-pic {
+		.badge {
+			position: absolute;
+			margin-left: -35px;
+			background-color: @orange;
+			color: @white;
+
+			// Adjust appearance
+			padding: 8px 7px;
+			.border-radius(20px);
+			font-size: 16px;
+		}
+	}
+	#dashboard-menu {
+		color: white;
+
+		a {
+			color: @gray;
+			text-decoration: none;
+
+			&:hover {
+				color: @orange;
+
+				h5 {
+					color: white;
+				}
+			}
+		}
+
+		a.active {
+			color: @orange;
+			
+			h5 {
+				color: white;
+			}
+		}
+
+		span {
+			font-size: 42px;
+		}
+
+		p {
+			margin: 20px 0;
+		}
+
+		h5 {
+			margin-top: 0px;
+		}
+
+		.icon-circle {
+			color: @gray;
+			font-size: 6px;
+		}
+
+		#logout {
+			position: fixed;
+			bottom: 20px;
+			margin-left: 30px;
+			span {
+				color: @orange;
+			}
+			h5 {
+				color: white;
+			}
+		}
+	}
+}

@@ -75,7 +75,8 @@ class GroupsController extends BaseController {
 
             return View::make('groups.show')
                 ->with('group', $group)
-                ->with('discussions', $discussions);
+                ->with('discussions', $discussions)
+                ->with('activeMenuItem', 'groups');
         } else {
             return View::make('errors.denied');
         }
