@@ -5,7 +5,24 @@
 
 // Border Radius
 .border-radius(@radius) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.form-alert {
+	border: 1px solid @alert-border !important;
+	border-radius: @alert-border-radius !important;
+}
+.form-alert-success {
+	border: 2px solid @green !important;
+	color: lighten(@green, 10%) !important;
+}
+.form-alert-danger {
+	border: 2px solid @red !important;
+	color: lighten(@red, 10%) !important;
+}
+.form-alert-info {
+	border: 2px solid @blue !important;
+	color: lighten(@blue, 10%) !important;
 }

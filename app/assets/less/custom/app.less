@@ -1,5 +1,12 @@
 /* Required styles for the main app only. */
-body {padding-top: 90px;}
+body {
+	padding-top: 80px;
+	background-color: @light-gray;
+}
+
+#body {
+	padding-top: 30px;
+}
 
 
 .discussion-post:before {
@@ -10,7 +17,68 @@ body {padding-top: 90px;}
 	visibility: hidden;
 }
 
-.navbar.navbar-fixed-top {
-	padding: 15px;
-	border-bottom: 1px solid #d5d6d8;
+.navbar {
+	background-color: @black;
+	padding: 5px;
+
+	.navbar-brand {
+		color: white;
+	}
+}
+
+// Adjust profile pic in nav
+img#nav-profile-pic {
+	margin-top: -10px;
+}
+// Adjust carret beside profile pic
+.navbar .nav > li > a {
+	padding-bottom: 0;
+	color: @white;
+
+	&:hover {
+		color: @light-gray;
+	};
+}
+
+.activity-well {
+	.well;
+	background-color: @white;
+}
+
+.well {
+	background-color: @white;
+}
+
+// Heading fix for group/show page
+.h2 {
+	line-height: 40px;
+}
+
+// Global form styling
+form {
+	input[type="text"], textarea {
+		background-color: @lightest-gray;
+		color: @darkest-gray;
+		border: none;
+		.box-shadow(none);
+
+		&:focus {
+			outline: none;
+			.border-radius(0px);
+			//border-bottom: 1px dashed @blue;
+			color: @black;
+		}
+	}
+	select {
+		background-color: @gray;
+		color: @darkest-gray;
+		border: none;
+		.box-shadow(none);
+		-webkit-appearance: none;
+		height: 12px;
+		line-height: inherit;
+	}
+	select:focus {
+		outline: none;
+	}
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-span-8">
+<div class="col col-lg-8 well">
     <div>
         @if($forkedDiscussion != null)
             @if ($forkedPost != null)
@@ -29,7 +29,7 @@
     <p>
         {{ Form::open(['action' => ['PostsController@store', Group::current()->id, Discussion::current()->id]]) }}
         {{ Form::textarea('content', '', ['class' => 'input-block-level', 'placeholder' => 'Comment']) }}
-        {{ Form::submit('Reply', ['class' => 'btn btn-small btn-success']) }}
+        {{ Form::submit('Reply', ['class' => 'btn btn-success pull-right']) }}
         {{ Form::close() }}
     </p>
 </div>

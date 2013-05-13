@@ -3,6 +3,8 @@
  *
  *
  */
+
+// Scroll to branched post
  (function($){
 
  	var jump=function(e)

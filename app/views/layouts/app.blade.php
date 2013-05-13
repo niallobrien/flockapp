@@ -28,20 +28,19 @@
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
 </head>
-
 <body>
-@include('layouts._navigation-sidebar')
-@include('layouts._navigation-app')
-<div class="container">
-    <div class="row">
-        @include($_sidebarLeft)
+    {{-- @include('layouts._navigation-sidebar') --}}
+    @include('layouts._navigation-app')
+    <div id="body" class="container">
+        <div class="row">
+           @include($_sidebarLeft)
 
-        @yield('content')
+           @yield('content')
 
-        @include('layouts._sidebar-right')
-    </div>
-        @include('layouts._footer')
-    </div>
+           @include('layouts._sidebar-right')
+       </div>
+       @include('layouts._footer')
+   </div>
 </div>
 </body>
 </html>

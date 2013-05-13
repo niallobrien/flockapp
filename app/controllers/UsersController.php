@@ -44,10 +44,10 @@ class UsersController extends BaseController {
 
         // Validation rules
         $rules = [
-            'first_name'	=> 'required',
-            'last_name' 	=> 'required',
-            'email'     	=> 'required|email|unique:users',
-            'password'  	=> 'required|min:5'
+        'first_name'	=> 'required',
+        'last_name' 	=> 'required',
+        'email'     	=> 'required|email|unique:users',
+        'password'  	=> 'required|min:5'
         ];
 
         $validation = Validator::make($input, $rules);
@@ -55,8 +55,8 @@ class UsersController extends BaseController {
         // If input fails redirect with errors and old input
         if ($validation->fails()) {
             return Redirect::action('UsersController@create')
-                ->withErrors($validation)
-                ->withInput();
+            ->withErrors($validation)
+            ->withInput();
         }
         else {
             // create new user
@@ -65,7 +65,7 @@ class UsersController extends BaseController {
                 'last_name' => $lastName,
                 'email' => $email,
                 'password' => Hash::make($password)
-            ]);
+                ]);
             // Log in the new user
             Auth::loginUsingId($user->id);
             return Redirect::action('UsersController@show', [$user->id]);
@@ -84,8 +84,7 @@ class UsersController extends BaseController {
             // Get all discussions the user is a member of - Activity Stream
             $posts = Auth::user()->posts()->orderBy('id', 'desc')->get();
             return View::make('users.show')
-                ->with('posts', $posts)
-                ->with('activeMenuItem', 'home');
+            ->with('posts', $posts);
         }
         else
         {

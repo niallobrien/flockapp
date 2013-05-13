@@ -19,6 +19,9 @@ class DiscussionsController extends BaseController {
      */
     public function create()
     {
+        // Swap out the sidebar defined in our app master layout (also see start/global.php)
+        View::share('_sidebarLeft', 'groups._sidebar-left');
+
         return View::make('discussions.create')
         ->with('group', Group::current());
     }
@@ -88,6 +91,9 @@ class DiscussionsController extends BaseController {
                 $forkedDiscussion = null;
                 $forkedPost = null;
             }
+
+            // Swap out the sidebar defined in our app master layout (also see start/global.php)
+            View::share('_sidebarLeft', 'groups._sidebar-left');
 
             return View::make('discussions.show')
             ->with('discussion', $discussion)

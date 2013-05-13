@@ -6,7 +6,7 @@
 
         {{-- Center bootstrap divs, set the classes so 2 * offsetClass + span class = 12 columns. --}}
 
-        <div class="col-offset-4 col-span-4">
+        <div class="col-offset-4 col col-lg-4">
 
             {{ Form::open(['class' => 'form-horizontal']) }}
 

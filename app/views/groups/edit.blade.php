@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="span8">
+<div class="col col-lg-8">
     {{ Form::open(['method' => 'PUT', 'action' => ['GroupsController@update', $group->id], 'class' => 'form-signin']) }}
 
     <fieldset>
