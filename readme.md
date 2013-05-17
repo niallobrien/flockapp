@@ -1,9 +1,4 @@
-Fortrabbit SSH:
-==============
-Server: ssh1.eu1.frbit.com
-Username: u-flockapp
-Password: oCFRasR10l04Q7Z9
+flockapp
+========
 
-Shortcut: u-flockapp@ssh1.eu1.frbit.com
-
-mySQL DB Paddword: VHLJQ4tOJkFCqoc_
+Group collaboration platform

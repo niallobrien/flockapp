@@ -4,7 +4,7 @@
 <div class="col col-lg-8">
     <div class="well">
         <div class="well-header">
-            <span class="h2">{{ Group::current()->title }}</span>
+            <span class="h2">{{ Group::current()->title }} discussions.</span>
             <a href="{{ URL::action('DiscussionsController@create', [$group->id]) }}" class="btn btn-success pull-right">Start a new discussion &raquo;</a>
         </div>
     </div>
@@ -21,12 +21,13 @@
     <div class="well">
         {{-- Preview the discussion --}}
         <a href="{{ URL::action('UsersController@show', [$discussion->posts->first()->user->id]) }}">
-            {{ $discussion->posts->first()->user->fullName() }}</a>
-        <div>
+            {{ $discussion->posts->first()->user->fullName() }}</a> created the
             <a href="{{ URL::action('DiscussionsController@show', [$group->id, $discussion->id]) }}">
-                {{ $discussion->title }}</a>
-        </div>
+                {{ $discussion->title }}</a> discussion.
+
+        <div>
         {{ $discussion->posts->first()->content }}
+        </div>
         <div>
             Comments: {{ $discussion->posts->count() }}
         </div>
