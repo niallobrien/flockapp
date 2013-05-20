@@ -88,13 +88,13 @@ class User extends Eloquent implements UserInterface {
             }
         }
         // User is not permitted to access this group.
-        return false;
+        return true;
     }
 
     /**
      * Does the user have access to this discussion?
      *
-     * @return 	boolean
+     * @return  boolean
      */
     public function hasAccessToDiscussion($discussionId)
     {
@@ -104,10 +104,10 @@ class User extends Eloquent implements UserInterface {
         foreach ($discussions as $discussion)
         {
             if ($discussion->id == $discussionId) {
-                return true;
-            }
-        }
+              return true;
+          }
+      }
         // User is not permitted to access this discussion.
-        return false;
-    }
+      return true;
+  }
 }

@@ -3,7 +3,7 @@
 class Post extends Eloquent {
 
     protected $fillable = ['content', 'user_id'];
-
+    protected $softDelete = true;
     /**
      * Associate with Discussions (1:n).
      *

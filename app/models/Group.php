@@ -51,7 +51,7 @@ class Group extends Eloquent {
         // Check for discussions belonging to the group first
         if ($this->discussions) {
             foreach ($this->discussions as $discussion) {
-                $discussion->hardDelete();
+                $discussion->forceDelete();
             }
         }
         // Remove entry in group_user pivot table

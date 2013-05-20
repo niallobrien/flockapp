@@ -68,15 +68,11 @@ class GroupsController extends BaseController {
     {
         if (Auth::user()->hasAccessToGroup($id)) {
             $group = Group::find($id);
-            $discussions = $group->discussions()->active()->get();
+            $discussions = $group->discussions()->get();
 
             // Swap out the sidebar defined in our app master layout (also see start/global.php)
             View::share('_sidebarLeft', 'groups._sidebar-left');
-
-            return View::make('groups.show')
-                ->with('group', $group)
-                ->with('discussions', $discussions)
-                ->with('activeMenuItem', 'groups');
+            return View::make('groups.show', compact('group', 'discussions'));
         } else {
             return View::make('errors.denied');
         }
@@ -147,7 +143,6 @@ class GroupsController extends BaseController {
     public function destroy($id)
     {
         $group = Group::find($id);
-        
         $group->delete();
         return Redirect::action('UsersController@show', [Auth::user()->id]);
     }

@@ -14,9 +14,9 @@ class CreatePostsTable extends Migration {
         Schema::create('posts', function($table)
         {
             $table->increments('id');
-            $table->integer('discussion_id');
             $table->string('content');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable()->default(NULL);
         });
 	}
 

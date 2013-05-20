@@ -46,8 +46,8 @@ class PostsController extends BaseController {
         // If input fails redirect with errors and old input
         if ($validation->fails()) {
             return Redirect::back()
-                ->withErrors($validation)
-                ->withInput();
+            ->withErrors($validation)
+            ->withInput();
         }
         else {
             // Insert new post
@@ -95,14 +95,15 @@ class PostsController extends BaseController {
      */
     public function destroy($groupId, $discussionId, $postId)
     {
-        // If we're deleting the only post in the discussion, remove the discussion too.
+        // If we're soft-deleting the only post in the discussion, soft-delete the discussion too.
+        $post = Post::find($postId);
         $discussion = Discussion::find($discussionId);
         if ($discussion->posts()->count() == 1) {
-            $discussion->softDelete();
+            $post->delete();
+            $discussion->delete();
             return Redirect::action('GroupsController@show', [Group::current()->id]);
         }
 
-        $post = Post::find($postId);
         $post->delete();
         return Redirect::action('DiscussionsController@show', [$groupId, $discussionId]);
     }

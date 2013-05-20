@@ -83,11 +83,11 @@ class UsersController extends BaseController {
         {
             // Get all discussions the user is a member of - Activity Stream
             $posts = Auth::user()->posts()->orderBy('id', 'desc')->get();
-            return View::make('users.show')
-            ->with('posts', $posts);
+            return View::make('users.show', compact('posts'));
         }
         else
         {
+            // TODO -- refactor to use L4 App errors
             return View::make('errors.denied');
         }
     }

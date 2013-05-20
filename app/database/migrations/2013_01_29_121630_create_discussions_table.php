@@ -17,6 +17,7 @@ class CreateDiscussionsTable extends Migration {
             $table->integer('group_id');
             $table->string('title');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable()->default(NULL);
         });
     }
 

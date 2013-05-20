@@ -3,7 +3,8 @@
 class Discussion extends Eloquent {
 
     protected $fillable = ['title', 'parent_discussion_id', 'parent_post_id'];
-
+    protected $softDelete = true;
+    
     /**
      * The database table used by the model.
      *
@@ -64,70 +65,19 @@ class Discussion extends Eloquent {
     }
 
     /**
-     * Permanently remove the discussion from db storage
+     * Permanently remove the discussion from db storage extending L4's forceDelete()
      *
      * @return mixed
      */
-    public function hardDelete()
+    public function forceDelete()
     {
         // Check for posts to discussion first
         if ($this->posts) {
             foreach ($this->posts as $post) {
-                $post->delete();
+                $post->forceDelete();
             }
         }
         // Now delete the discussion
-        return parent::delete();
-    }
-
-    /**
-     * Flag the discussion as deleted, but keep in db storage
-     * This is primarly useful for ensuring that discussion are not orphaned
-     *
-     * @return int
-     */
-    public function softDelete()
-    {
-        // Don't delete the discussion, just change the flag so it appears to be deleted
-        if($this->is_deleted == 0) {
-            $this->is_deleted = 1;
-            return $this->save();
-        }
-    }
-
-    /**
-     * Is this discussion marked as deleted (soft-delete)?
-     * 
-     * @return boolean
-     */
-    public function hasBeenRemoved()
-    {
-        if($this->is_deleted == '1') {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Scoped query to see if discussion is active
-     * 
-     * @param  $query
-     * @return mixed
-     */
-    public function scopeActive($query)
-    {
-        $query->where('is_deleted', 0);
-    }
-
-    /**
-     * Scoped query to see if discussion is inactive (soft-deleted)
-     * 
-     * @param  $query
-     * @return mixed
-     */
-    public function scopeInactive($query)
-    {
-        $query->where('is_deleted', 1);
+        return parent::forceDelete();
     }
 }
