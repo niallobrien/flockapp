@@ -15,8 +15,8 @@ class CreatePostsTable extends Migration {
         {
             $table->increments('id');
             $table->string('content');
+            $table->softDeletes();
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable()->default(NULL);
         });
 	}
 

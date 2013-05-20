@@ -65,6 +65,23 @@ class Discussion extends Eloquent {
     }
 
     /**
+     * Soft-delete discussion and its associated posts
+     *
+     * @return mixed
+     */
+    public function delete()
+    {
+        // Check for posts to discussion first
+        if ($this->posts) {
+            foreach ($this->posts as $post) {
+                $post->delete();
+            }
+        }
+        // Now delete the discussion
+        return parent::delete();
+    }
+
+    /**
      * Permanently remove the discussion from db storage extending L4's forceDelete()
      *
      * @return mixed
