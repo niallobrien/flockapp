@@ -23,7 +23,7 @@
 		</p>
 		<a href="" class="{{ ($activeMenuItem == 'groups') ? 'active' : '' }}">
 			<span class="icon-th-list"></span>
-			<h5>Flocks</h5>			
+			<h5>Flocks</h5>
 		</a>
 
 		<p>
@@ -33,7 +33,7 @@
 		</p>
 		<a href="">
 			<span class="icon-group"></span>
-			<h5>People</h5>			
+			<h5>People</h5>
 		</a>
 
 

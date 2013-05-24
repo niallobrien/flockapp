@@ -1,20 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col col-lg-8 well">
+<div class="col col-lg-8">
     <div>
         @if($forkedDiscussion != null)
-            @if ($forkedPost != null)
-                This discussion is forked from <a href="
-                {{ URL::action('DiscussionsController@show', [Group::current()->id, $forkedDiscussion->id]) .
-                "#post-" . $forkedPost->id }}">{{ $forkedDiscussion->title }}</a>.
-            @else
-                <a href="{{ URL::action('GroupsController@show', [Group::current()->id]) }}">{{ Group::current()->title }}</a> >
-                {{ $discussion->title }}
-           @endif
+        @if ($forkedPost != null)
+        This discussion is forked from <a href="
+        {{ URL::action('DiscussionsController@show', [Group::current()->id, $forkedDiscussion->id]) .
+        "#post-" . $forkedPost->id }}">{{ $forkedDiscussion->title }}</a>.
+        @else
+        <a href="{{ URL::action('GroupsController@show', [Group::current()->id]) }}">{{ Group::current()->title }}</a> >
+        {{ $discussion->title }}
         @endif
+        @endif
+        <div class="pull-right">
+            <a class="btn btn-danger btn-mini" href="{{ URL::action('DiscussionsController@destroy', [Group::current()->id, $discussion->id]) }}" data-method="delete">
+                <span class="icon-trash"></span> Delete
+            </a>
+        </div>
     </div>
-    <a href="{{ URL::action('DiscussionsController@destroy', [Group::current()->id, $discussion->id]) }}" data-method="delete">Delete this discussion</a>
     @foreach ($discussion->posts as $post)
     <div id="post-{{ $post->id }}" class="discussion-post">
         <div class="well">
@@ -28,7 +32,7 @@
     @endforeach
     <p>
         {{ Form::open(['action' => ['PostsController@store', Group::current()->id, Discussion::current()->id]]) }}
-        {{ Form::textarea('content', '', ['class' => 'input-block-level', 'placeholder' => 'Comment']) }}
+        {{ Form::textarea('content', '', ['class' => '', 'placeholder' => 'Comment']) }}
         {{ Form::submit('Reply', ['class' => 'btn btn-success pull-right']) }}
         {{ Form::close() }}
     </p>

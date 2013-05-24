@@ -90,7 +90,7 @@ class Discussion extends Eloquent {
     {
         // Check for posts to discussion first
         if ($this->posts) {
-            foreach ($this->posts as $post) {
+            foreach ($this->posts()->withTrashed()->get() as $post) {
                 $post->forceDelete();
             }
         }

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="span8">
-    {{ Form::open(['action' => ['DiscussionsController@fork', Group::current()->id], 'class' => 'center']) }}
+    {{ Form::open(['action' => ['DiscussionsController@getFork', Group::current()->id, $discussion->id, $post->id], 'class' => 'center']) }}
     <form>
         <fieldset>
             <legend>Fork a discussion.</legend>

@@ -1,7 +1,6 @@
 <?php
 
 class DiscussionsController extends BaseController {
-
     /**
      * Display a listing of the resource.
      *
@@ -94,10 +93,7 @@ class DiscussionsController extends BaseController {
             // Swap out the sidebar defined in our app master layout (also see start/global.php)
             View::share('_sidebarLeft', 'groups._sidebar-left');
 
-            return View::make('discussions.show')
-            ->with('discussion', $discussion)
-            ->with('forkedDiscussion', $forkedDiscussion)
-            ->with('forkedPost', $forkedPost);
+            return View::make('discussions.show', compact('discussion', 'forkedDiscussion', 'forkedPost'));
         } else {
             return View::make('errors.denied');
         }

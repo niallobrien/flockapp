@@ -73,9 +73,12 @@ class PostsController extends BaseController {
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit($groupID, $discussionId, $postId)
     {
-        //
+        // Find post
+        // 
+        $post = Post::find($postId);
+        dd($post->content);
     }
 
     /**

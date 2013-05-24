@@ -1,5 +1,5 @@
 /* Required styles for the main app only. */
-body {padding-top: 60px;}
+body {padding-top: 80px;}
 
 .profile-pic-small {
   margin-top: 5px;
@@ -12,4 +12,18 @@ body {padding-top: 60px;}
 	margin-top: -50px;
 	height: 50px;
 	visibility: hidden;
+}
+
+// Adjust profile pic in nav
+img#nav-profile-pic {
+	margin-top: -10px;
+}
+// Adjust carret beside profile pic
+.navbar .nav > li > a {
+	padding-bottom: 0;
+	color: @white;
+
+	&:hover {
+		color: @gray;
+	};
 }
