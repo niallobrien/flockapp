@@ -18,6 +18,9 @@ Route::get('pricing', 'HomeController@pricing');
 Route::get('blog', 'HomeController@blog');
 Route::get('help', 'HomeController@help');
 Route::get('/', 'HomeController@index');
+Route::get('/redirect-test', function() {
+    return Redirect::action('HomeController@blog');
+});
 
 Route::get('test', function()
 {

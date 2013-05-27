@@ -78,7 +78,7 @@ class PostsController extends BaseController {
         // Find post
         // 
         $post = Post::find($postId);
-        dd($post->content);
+        return View::make('posts.edit', compact('post'));
     }
 
     /**
@@ -86,9 +86,13 @@ class PostsController extends BaseController {
      *
      * @return Response
      */
-    public function update($id)
+    public function update($groupId, $discussionId, $postId)
     {
-        //
+        $input = Input::get();
+        $post = Post::find($postId);
+        $post->content = $input['content'];
+        $post->save();
+        return Redirect::action('DiscussionsController@show', [$groupId, $discussionId]);
     }
 
     /**

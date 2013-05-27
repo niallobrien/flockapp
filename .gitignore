@@ -5,4 +5,4 @@ composer.lock
 vendor/*
 app/storage/*
 app/config/local/*
-./idea/
+./idea/*
